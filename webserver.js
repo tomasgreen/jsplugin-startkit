@@ -34,10 +34,11 @@ app.use('/', express.static(__dirname + '/example'));
 
 
 var ifaces = os.networkInterfaces();
+var printDetails = function (details) {
+	if (details.family == 'IPv4' && dev.indexOf('lo') === -1) {
+		console.log('webserver running on http://' + details.address + ':' + port);
+	}
+};
 for (var dev in ifaces) {
-	ifaces[dev].forEach(function (details) {
-		if (details.family == 'IPv4' && dev.indexOf('lo') === -1) {
-			console.log('webserver running on http://' + details.address + ':' + port);
-		}
-	});
+	ifaces[dev].forEach(printDetails);
 }

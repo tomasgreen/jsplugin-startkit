@@ -16,7 +16,7 @@ module.exports = function () {
 			case 'log':
 			case 'dir':
 			case 'assert':
-				func = f.toUpperCase().grey;
+				func = f.toUpperCase().magenta;
 				break;
 			case 'warn':
 				func = f.toUpperCase().yellow;
